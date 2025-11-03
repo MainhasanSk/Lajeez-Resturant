@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junak Digital Dynamics - Professional Website Design at ₹4,999</title>
+    <meta name="description" content="Get SEO-friendly, professional websites starting at just ₹4,999. Fast, secure, and customized to your brand colors and business needs.">
+    <meta name="keywords" content="website design, professional website, SEO friendly website, affordable web design, business website, custom website design">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(135deg, #dc0000 0%, #000000 100%);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+            animation: slideDown 0.8s ease;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 24px;
+            color: #dc0000;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        .brand-name {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .cta-nav {
+            background: white;
+            color: #dc0000;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .cta-nav:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(220, 0, 0, 0.5);
+            background: #dc0000;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #dc0000 0%, #1a0000 100%);
+            padding: 150px 5% 100px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-100px);
+            }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .tagline {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            /*color: #ffffff;
+            background: linear-gradient(90deg, #ffffff 0%, #ff4444 50%, #ffffff 100%); */
+            columns: #f1de0a;
+            background: linear-gradient(90deg, #ffffff 0%, #f7ff03 50%, #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease 0.4s backwards, shimmer 3s infinite;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-weight: bold;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -100%;
+            }
+            100% {
+                background-position: 100%;
+            }
+        }
+
+        /* Hero paragraph that hides on scroll */
+        .hero p.hero-description {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.6s backwards;
+            transition: opacity 0.5s ease, transform 0.5s ease, max-height 0.5s ease;
+            max-height: 200px;
+            overflow: hidden;
+        }
+
+        .hero p.hero-description.hidden {
+            opacity: 0;
+            transform: translateY(-20px);
+            max-height: 0;
+            margin-bottom: 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #dc0000;
+            padding: 18px 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            animation: fadeInUp 1s ease 0.8s backwards, pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(220, 0, 0, 0.6);
+            background: #dc0000;
+            color: white;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 5%;
+            background: #f8f9fa;
+            transition: background 0.5s ease;
+        }
+
+        .features.dark-bg {
+            background: linear-gradient(135deg, #1a0000 0%, #dc0000 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a0000;
+            position: relative;
+            transition: color 0.5s ease;
+        }
+
+        .section-title.white-text {
+            color: white !important;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(135deg, #dc0000 0%, #000000 100%);
+            margin: 20px auto;
+            border-radius: 2px;
+            transition: background 0.5s ease;
+        }
+
+        .section-title.white-text::after {
+            background: linear-gradient(135deg, #ffffff 0%, #ff4444 100%);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 0.6s ease forwards;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:nth-child(1) { animation-delay: 0.2s; }
+        .feature-card:nth-child(2) { animation-delay: 0.4s; }
+        .feature-card:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(220, 0, 0, 0.3);
+            border-color: #dc0000;
+        }
+
+        .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #dc0000;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 5%;
+            background: #1a0000;
+        }
+
+        .pricing .section-title {
+            color: white;
+        }
+
+        .pricing .section-title::after {
+            background: linear-gradient(135deg, #ffffff 0%, #dc0000 100%);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: white;
+            border: 2px solid #dc0000;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #dc0000 0%, #000000 100%);
+            transition: left 0.5s ease;
+            z-index: 0;
+        }
+
+        .pricing-card:hover::before {
+            left: 0;
+        }
+
+        .pricing-card:hover {
+            transform: scale(1.05);
+            border-color: #ffffff;
+        }
+
+        .pricing-card:hover * {
+            color: white;
+        }
+
+        .pricing-card.featured {
+            border-color: #dc0000;
+            border-width: 3px;
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+        }
+
+        .featured-badge {
+            background: linear-gradient(135deg, #dc0000 0%, #000000 100%);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .pricing-card * {
+            position: relative;
+            z-index: 1;
+            transition: color 0.3s ease;
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1a0000;
+            font-weight: bold;
+        }
+
+        .price {
+            font-size: 3rem;
+            color: #dc0000;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .price span {
+            font-size: 1.5rem;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .pricing-card li {
+            padding: 12px 0;
+            color: #666;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .pricing-card li:before {
+            content: '✓';
+            color: #dc0000;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .select-plan {
+            background: linear-gradient(135deg, #dc0000 0%, #000000 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover .select-plan {
+            background: white;
+            color: #dc0000;
+        }
+
+        /* Demo Section - Always Visible */
+        .demo-section {
+            padding: 80px 5%;
+            background: linear-gradient(135deg, #dc0000 0%, #000000 100%);
+            color: white;
+        }
+
+        .demo-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .demo-content > h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .demo-content > p {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        /* Demo boxes always visible */
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .demo-box {
+            background: white;
+            border: 3px solid #ffffff;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.4);
+        }
+
+        .demo-box iframe {
+            width: 100%;
+            height: 220px;
+            border: none;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            pointer-events: none;
+        }
+
+        .demo-box h3 {
+            color: #dc0000;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .demo-box p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .demo-box-button {
+            background: linear-gradient(135deg, #dc0000 0%, #000000 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .demo-box-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(220, 0, 0, 0.8);
+        }
+
+        /* Contact Form Section */
+        .contact-section {
+            padding: 80px 5%;
+            background: #f8f9fa;
+        }
+
+        .contact-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #1a0000;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #dc0000;
+            box-shadow: 0 0 10px rgba(220, 0, 0, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-button {
+            background: linear-gradient(135deg, #dc0000 0%, #000000 100%);
+            color: white;
+            padding: 18px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(220, 0, 0, 0.4);
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 70px;
+            height: 70px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 40px;
+            box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 2px 2px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-popup {
+            position: fixed;
+            bottom: 110px;
+            right: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+            z-index: 1500;
+            display: none;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .whatsapp-popup.show {
+            display: block;
+        }
+
+        .whatsapp-popup h4 {
+            color: #25d366;
+            margin-bottom: 10px;
+        }
+
+        .whatsapp-popup p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .whatsapp-chat-button {
+            background: #25d366;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-chat-button:hover {
+            background: #128c7e;
+        }
+
+        /* Footer */
+        .footer {
+            background: #000000;
+            color: white;
+            padding: 40px 5%;
+            text-align: center;
+            border-top: 3px solid #dc0000;
+        }
+
+        .footer p {
+            margin: 10px 0;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer h3 {
+            color: #dc0000;
+            margin-bottom: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1.3rem;
+            }
+
+            .hero p.hero-description {
+                font-size: 1rem;
+            }
+
+            .brand-name {
+                font-size: 18px;
+            }
+
+            .cta-nav {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .contact-container {
+                padding: 30px 20px;
+            }
+
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp-popup {
+                right: 10px;
+                left: 10px;
+                bottom: 110px;
+            }
+
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                font-size: 35px;
+                right: 20px;
+                bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="JunakLogo.png" alt="Junak Logo">
+                </div>
+                <span class="brand-name">Junak Digital Dynamics</span>
+            </div>
+            <a href="#pricing" class="cta-nav">View Plans</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Professional Websites That Drive Results</h1>
+            <p class="tagline">Now List Your Business Online at Just ₹4,999!</p>
+            <p class="hero-description" id="heroDescription">Get SEO-friendly, professional websites that are smooth, fast, and secure. Customized to match your brand colors and business needs.</p>
+            <a href="#contact-form" class="cta-button">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features-section">
+        <h2 class="section-title" id="features-title">Why Choose Junak Digital Dynamics?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3>Lightning Fast</h3>
+                <p>Optimized for speed with loading times under 3 seconds. Fast websites rank higher and convert better.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>100% Secure</h3>
+                <p>Built with the latest security standards to protect your business and customer data from threats.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3>Custom Design</h3>
+                <p>Designed based on your theme colors and brand identity. Your website, your way.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Mobile Responsive</h3>
+                <p>Perfect display on all devices - phones, tablets, and desktops. Reach customers everywhere.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3>SEO Optimized</h3>
+                <p>Built for search engines from day one. Get found by customers searching for your services.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h3>24/7 Support</h3>
+                <p>We're here whenever you need us. Quick response times and dedicated support team.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <h2 class="section-title">Choose Your Perfect Plan</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="plan-name">Basic</div>
+                <div class="price">₹4,999</div>
+                <ul>
+                    <li>Upto 3 Pages</li>
+                    <li>Mobile Responsive</li>
+                    <li>Contact Form</li>
+                    <li>Social Media Links</li>
+                    <li>One Business Email</li>
+                    <li>1 Month Support</li>
+                    <li>Free Domain</li>
+                    <li>One Year Free Hosting</li>
+                </ul>
+                <a class="select-plan">Select Plan</a>
+            </div>
+
+            <div class="pricing-card featured">
+                <span class="featured-badge">MOST POPULAR</span>
+                <div class="plan-name">Professional</div>
+                <div class="price">₹9,999</div>
+                <ul>
+                    <li>Upto 7 Pages</li>
+                    <li>Mobile Responsive</li>
+                    <li>SEO Friendly</li>
+                    <li>Contact & Inquiry Forms</li>
+                    <li>Google Maps Integration</li>
+                    <li>WhatsApp Integration</li>
+                    <li>Two Business Email</li>
+                    <li>Privacy Policy Page</li>
+                    <li>Free Domain</li>
+                    <li>One Year Free Hosting</li>
+                    <li>3 Months Support</li>
+                </ul>
+                <a class="select-plan">Select Plan</a>
+            </div>
+
+            <div class="pricing-card">
+                <div class="plan-name">Business</div>
+                <div class="price">₹19,999</div>
+                <ul>
+                    <li>Upto 15 Pages</li>
+                    <li>Advanced SEO</li>
+                    <li>Everything in Professional</li>
+                    <li>Contact & Inquiry Forms</li>
+                    <li>Google Maps Integration</li>
+                    <li>Call & WhatsApp Integration</li>
+                    <li>Blog Section</li>
+                    <li>Gallery/Portfolio</li>
+                    <li>Three Business Email</li>
+                    <li>6 Months Support</li>
+                </ul>
+                <a class="select-plan">Select Plan</a>
+            </div>
+
+            <div class="pricing-card">
+                <div class="plan-name">E-Commerce-Basic</div>
+                <div class="price">₹34,999</div>
+                <ul>
+                    <li>Unlimited Pages</li>
+                    <li>Advanced SEO</li>
+                    <li>Payment Gateway</li>
+                    <li>Customer Portal</li>
+                    <li>50 Products</li>
+                    <li>Privacy and Refund Policy</li>
+                    <li>5 business Email</li>
+                    <li>12 Months Support</li>
+                </ul>
+                <a class="select-plan">Select Plan</a>
+            </div>
+
+            <div class="pricing-card">
+                <div class="plan-name">E-Commerce</div>
+                <div class="price">₹49,999</div>
+                <ul>
+                    <li>Unlimited Pages</li>
+                    <li>Advanced SEO</li>
+                    <li>Payment Gateway</li>
+                    <li>Customer Portal</li>
+                    <li>Admin Panel</li>
+                    <li>Privacy and Refund Policy</li>
+                    <li>WhatsApp Chat Integration</li>
+                    <li>100 Products</li>
+                    <li>5 business Email</li>
+                    <li>12 Months Support</li>
+                </ul>
+                <a class="select-plan">Select Plan</a>
+            </div>
+
+            <div class="pricing-card">
+                <div class="plan-name">Custom Plan</div>
+                <span class="featured-badge">Flexible Pricing</span>
+                <ul>
+                    <li>Choose Your Website Type</li>
+                    <li>Select Features You Need</li>
+                    <li>Dynamic Price Calculation</li>
+                    <li>Custom Domain & Hosting Options</li>
+                    <li>SEO, Branding & Marketing Add-ons</li>
+                    <li>Admin Panel & E-Commerce Tools</li>
+                    <li>Dedicated Support Plans</li>
+                    <li>Get Instant Quotation</li>
+                </ul>
+                <a class="select-plan">Select Plan</a>
+            </div>
+        </div>
+    </section>
+    <!--From for selected plan-->
+    <!-- Hidden Popup Form -->
+<div id="planPopup" class="popup-overlay">
+  <div class="popup-content">
+    <span class="close-btn">&times;</span>
+    <h2>Book Your Plan</h2>
+    <form
+      action="https://formspree.io/f/yourFormID" 
+      method="POST"
+      class="popup-form"
+    >
+      <label for="selected-plan">Selected Plan</label>
+      <input type="text" id="selected-plan" name="Selected Plan" readonly>
+
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+      <label for="phone">Phone</label>
+      <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+      <label for="message">Message (Optional)</label>
+      <textarea id="message" name="message" placeholder="Any extra details..."></textarea>
+
+      <button type="submit" class="btn-submit">Submit</button>
+    </form>
+  </div>
+</div>
+
+<!-- Script -->
+<script>
+  const popup = document.getElementById("planPopup");
+  const closeBtn = document.querySelector(".close-btn");
+  const planInput = document.getElementById("selected-plan");
+
+  // When any "Select Plan" button is clicked
+  document.querySelectorAll(".select-plan").forEach(button => {
+    button.addEventListener("click", function (e) {
+      e.preventDefault();
+      const planName = this.closest(".pricing-card").querySelector(".plan-name").textContent.trim();
+      planInput.value = planName;
+      popup.style.display = "flex";
+      document.body.style.overflow = "hidden"; // prevent background scrolling
+    });
+  });
+
+  // Close popup
+  closeBtn.addEventListener("click", () => {
+    popup.style.display = "none";
+    document.body.style.overflow = "auto";
+  });
+
+  // Close when clicking outside the form
+  window.addEventListener("click", (e) => {
+    if (e.target === popup) {
+      popup.style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+  });
+</script>
+
+<!-- Styling -->
+<style>
+  /* Popup Overlay */
+  .popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  /* Popup Box */
+  .popup-content {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 15px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 0 25px rgba(0,0,0,0.2);
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  /* Close Button */
+  .close-btn {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+  }
+
+  .popup-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  /* Form Styling */
+  .popup-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    text-align: left;
+  }
+
+  .popup-form input,
+  .popup-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+
+  .popup-form input[readonly] {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+
+  .btn-submit {
+  background: linear-gradient(135deg, #dc0000 0%, #000000 100%);
+            color: white;
+            padding: 18px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+  }
+
+  .btn-submit:hover {
+    background: #fdf6f6;
+     color:red;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.95);}
+    to {opacity: 1; transform: scale(1);}
+  }
+</style>
+
+    <!-- Demo Section - Always Visible Boxes -->
+    <section class="demo-section">
+        <div class="demo-content">
+            <h2 class="section-title" style="color: white;">See Our Work In Action</h2>
+            <p>Check out our portfolio of stunning websites we've created for businesses just like yours. See the quality, speed, and design excellence that sets us apart.</p>
+            
+            <!-- Demo boxes always visible -->
+            <div class="demo-grid">
+                <div class="demo-box" onclick="window.open('https://flxcity.in', '_blank')">
+                    <iframe src="https://www.flxcity.in" scrolling="no"></iframe>
+                    <h3>Construction Company</h3>
+                    <p>A fully customized, SEO-friendly, and professionally hosted website. You can find <strong>Flxcity</strong> on Google — it's already ranking at the top!<br>💰 Price: <strong>₹4,999</strong></p>
+                    <a href="https://flxcity.in" target="_blank" class="demo-box-button" onclick="event.stopPropagation()">Visit Website</a>
+                </div>
+                <div class="demo-box" onclick="window.open('https://neetyatra.in', '_blank')">
+                    <iframe src="https://www.neetyatra.in" scrolling="no"></iframe>
+                    <h3>Neet Yatra — Students Consultancy</h3>
+                    <p>A fully customized, SEO-optimized design suggested by the client and already live on Google. Perfect for educational consultancies and institutes.<br>💰 Budget: <strong>₹9,999</strong></p>
+                    <a href="https://neetyatra.in" target="_blank" class="demo-box-button" onclick="event.stopPropagation()">Visit Website</a>
+                </div>
+                <div class="demo-box" onclick="window.open('https://packtosealorginal.netlify.app/', '_blank')">
+                    <iframe src="https://packtosealorginal.netlify.app/" scrolling="no"></iframe>
+                    <h3>Mini E-Commerce Website</h3>
+                    <p>A demo version of our upcoming e-commerce platform. The final version will include 100+ products and enhanced shopping features. Onclick customers can watch demo video of products.<br>💰 Estimated Budget: <strong>₹24,999</strong></p>
+                    <a href="https://packtosealorginal.netlify.app/" target="_blank" class="demo-box-button" onclick="event.stopPropagation()">Visit Website</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-section" id="contact-form">
+        <h2 class="section-title">Get Your Free Quote</h2>
+        <div class="contact-container">
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="business">Business Name *</label>
+                    <input type="text" id="business" name="business" placeholder="Enter your business name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Contact Number *</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+91 XXXXXXXXXX" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="plan">Select Plan *</label>
+                    <select id="plan" name="plan" required>
+                        <option value="">Choose a plan</option>
+                        <option value="Basic - ₹4,999">Basic - ₹4,999</option>
+                        <option value="Professional - ₹9,999">Professional - ₹9,999</option>
+                        <option value="Business - ₹19,999">Business - ₹19,999</option>
+                        <option value="E-Commerce-Basic - ₹34,999">E-Commerce-Basic - ₹34,999</option>
+                        <option value="E-Commerce - ₹49,999">E-Commerce - ₹49,999</option>
+                        <option value="Custom Plan">Custom Plan</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Additional Requirements</label>
+                    <textarea id="message" name="message" placeholder="Tell us about your project requirements..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-button">Submit Request</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <h3>Ready to Take Your Business Online?</h3>
+        <div class="contact-info">
+            <p>📧 Email: contact@junakdigital.com</p>
+            <p>📱 WhatsApp: +91 8811093184</p>
+            <p>📞 Call: +91 8811093184</p>
+        </div>
+        <p style="margin-top: 30px;">&copy; 2025 Junak Digital Dynamics. All Rights Reserved.</p>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <div class="whatsapp-float" id="whatsappButton">
+        <span>💬</span>
+    </div>
+
+    <!-- WhatsApp Popup -->
+    <div class="whatsapp-popup" id="whatsappPopup">
+        <h4>Get Free Consultancy Now!</h4>
+        <p>Chat with us on WhatsApp for instant support and free consultation.</p>
+        <a href="https://wa.me/918811093184?text=Hi,%20I%20want%20a%20free%20consultation%20for%20website%20design" target="_blank" class="whatsapp-chat-button">Start Chat</a>
+    </div>
+
+    <script>
+        // Hide hero description paragraph on scroll
+        window.addEventListener('scroll', function() {
+            const heroDescription = document.getElementById('heroDescription');
+            const featuresTitle = document.getElementById('features-title');
+            const featuresSection = document.getElementById('features-section');
+            const heroSection = document.querySelector('.hero');
+            const heroHeight = heroSection.offsetHeight;
+            const scrollPosition = window.pageYOffset;
+            
+            // Hide hero description when scrolled down
+            if (scrollPosition > 100) {
+                heroDescription.classList.add('hidden');
+            } else {
+                heroDescription.classList.remove('hidden');
+            }
+            
+            // Change features section background when scrolled past 50% of hero
+            if (scrollPosition > heroHeight * 0.5) {
+                featuresTitle.classList.add('white-text');
+                featuresSection.classList.add('dark-bg');
+            } else {
+                featuresTitle.classList.remove('white-text');
+                featuresSection.classList.remove('dark-bg');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // WhatsApp popup functionality
+        const whatsappButton = document.getElementById('whatsappButton');
+        const whatsappPopup = document.getElementById('whatsappPopup');
+
+        whatsappButton.addEventListener('click', function() {
+            whatsappPopup.classList.toggle('show');
+        });
+
+        // Auto show popup after 5 seconds
+        setTimeout(function() {
+            whatsappPopup.classList.add('show');
+            setTimeout(function() {
+                whatsappPopup.classList.remove('show');
+            }, 5000);
+        }, 5000);
+
+        // Close popup when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!whatsappButton.contains(event.target) && !whatsappPopup.contains(event.target)) {
+                whatsappPopup.classList.remove('show');
+            }
+        });
+
+        // Scroll animation for feature cards
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .pricing-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
