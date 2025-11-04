@@ -831,7 +831,7 @@
 
         /* WhatsApp Modal Popup */
         .whatsapp-modal {
-            display: none;
+            /* display: none;
             position: fixed;
             z-index: 2000;
             left: 0;
@@ -840,7 +840,17 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.7);
             animation: modalFadeIn 0.3s ease;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px); */
+             display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    animation: modalFadeIn 0.3s ease;
+    backdrop-filter: blur(5px);
         }
 
         @keyframes modalFadeIn {
@@ -860,9 +870,9 @@
 
         .whatsapp-modal-content {
             background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
-            width: 90%;
-            max-width: 450px;
-            border-radius: 25px;
+            width: 85%;
+            max-width: 380px;
+            border-radius: 20px;
             position: relative;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             overflow: hidden;
@@ -888,7 +898,7 @@
 
         .whatsapp-modal-header {
             background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
-            padding: 30px 25px;
+            padding: 20px 20px; /*;<!--30px 25px--> */
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -917,11 +927,16 @@
         }
 
         .whatsapp-icon-large {
-            font-size: 70px;
+            /* font-size: 70px;
             margin-bottom: 15px;
             animation: iconFloat 2s ease-in-out infinite;
             position: relative;
-            z-index: 1;
+            z-index: 1; */
+              font-size: 55px;
+    margin-bottom: 10px;
+    animation: iconFloat 2s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
         }
 
         @keyframes iconFloat {
@@ -949,19 +964,29 @@
         }
 
         .whatsapp-modal-body {
-            padding: 40px 30px;
-            text-align: center;
+            /* padding: 40px 30px;
+            text-align: center; */
+             padding: 25px 20px;
+    text-align: center;
         }
 
         .whatsapp-message-box {
-            background: white;
+            /* background: white;
             padding: 25px;
             border-radius: 15px;
             margin-bottom: 25px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             border-left: 4px solid #25d366;
             text-align: left;
-            animation: slideInLeft 0.5s ease 0.3s backwards;
+            animation: slideInLeft 0.5s ease 0.3s backwards; */
+                background: white;
+    padding: 18px;
+    border-radius: 12px;
+    margin-bottom: 18px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #25d366;
+    text-align: left;
+    animation: slideInLeft 0.5s ease 0.3s backwards;
         }
 
         .whatsapp-message-box h4 {
@@ -1383,16 +1408,18 @@
                     <li>Mobile Responsive</li>
                     <li>Advanced SEO</li>
                     <li>Contact & Inquiry Forms</li>
-                    <li>Google Maps Integration</li>
-                    <li>Call & WhatsApp Integration</li>
                     <li>Social Media Links</li>
-                    <li>Blog Section</li>
-                    <li>Gallery/Portfolio</li>
-                    <li>Privacy Policy Page</li>
+                    <li>Google Maps Integration</li>
+                    <li>WhatsApp Integration</li>
+                    <li>Direct Call Integration</li>
                     <li>Three Business Email</li>
+                     <li>Privacy Policy Page</li>
+                    <li>Blog Section</li>
+                    <li>Gallery/Portfolio</li>     
                     <li>6 Months Support</li>
+                    <li>Free Domain</li>
                     <li>One Year Free Hosting</li>
-                    <li>3 Months Support</li>
+                    
                 </ul>
                 <a class="select-plan">Select Plan</a>
             </div>
@@ -1505,6 +1532,28 @@
                     <p>A demo version of our upcoming e-commerce platform. The final version will include 100+ products and enhanced shopping features. Onclick customers can watch demo video of products.<br>💰 Estimated Budget: <strong>₹24,999</strong></p>
                     <a href="https://packtosealorginal.netlify.app/" target="_blank" class="demo-box-button" onclick="event.stopPropagation()">Visit Website</a>
                 </div>
+              
+               <div class="demo-box" onclick="window.open('https://trustedpatientguide.com/', '_blank')">
+    <iframe src="https://trustedpatientguide.com/" scrolling="no"></iframe>
+    <h3>Chennai Medical Guidance</h3>
+    <p>Already hosted and live — a trusted medical guidance platform designed to help patients easily find and connect with healthcare services in Chennai.</p>
+    <a href="https://trustedpatientguide.com/" target="_blank" class="demo-box-button" onclick="event.stopPropagation()">Visit Website</a>
+</div>
+
+<div class="demo-box" onclick="window.open('https://crystaljunak.com/', '_blank')">
+    <iframe src="https://crystaljunak.com/" scrolling="no"></iframe>
+    <h3>Junak Crystal</h3>
+    <p>Already hosted and live — a modern e-commerce store for crystal products with a clean design and smooth shopping experience.</p>
+    <a href="https://crystaljunak.com/" target="_blank" class="demo-box-button" onclick="event.stopPropagation()">Visit Website</a>
+</div>
+
+<div class="demo-box" onclick="window.open('https://rishavjyotiduara.com/', '_blank')">
+    <iframe src="https://rishavjyotiduara.com/" scrolling="no"></iframe>
+    <h3>Construction Company</h3>
+    <p>Already hosted and live — a professional construction company website built to showcase ongoing projects, services, and contact details.</p>
+    <a href="https://rishavjyotiduara.com/" target="_blank" class="demo-box-button" onclick="event.stopPropagation()">Visit Website</a>
+</div>
+
             </div>
         </div>
     </section>
@@ -1782,3 +1831,4 @@
     </script>
 </body>
 </html>
+
