@@ -30,8 +30,13 @@
             z-index: 1000;
             box-shadow: 0 2px 20px rgba(0,0,0,0.3);
             animation: slideDown 0.8s ease;
+            transition: top 0.4s ease;
         }
-        
+
+        .navbar.hidden {
+            top: -100px;
+        }
+
         .logo img {
             height: 50px;
             width: auto;
@@ -163,8 +168,6 @@
         .tagline {
             font-size: 2rem;
             margin-bottom: 1.5rem;
-            /*color: #ffffff;
-            background: linear-gradient(90deg, #ffffff 0%, #ff4444 50%, #ffffff 100%); */
             columns: #f1de0a;
             background: linear-gradient(90deg, #ffffff 0%, #f7ff03 50%, #ffffff 100%);
             -webkit-background-clip: text;
@@ -459,6 +462,7 @@
             display: inline-block;
             font-weight: bold;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .pricing-card:hover .select-plan {
@@ -621,6 +625,171 @@
             box-shadow: 0 10px 30px rgba(220, 0, 0, 0.4);
         }
 
+        /* Chat Widget with Waving Hand */
+        .chat-widget {
+            position: fixed;
+            bottom: 120px;
+            left: 30px;
+            z-index: 1500;
+            animation: slideInLeft 1s ease 2s backwards;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .chat-bubble {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 20px 25px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            max-width: 320px;
+            position: relative;
+            animation: bubbleBounce 3s ease-in-out infinite;
+        }
+
+        @keyframes bubbleBounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .chat-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 30px;
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 15px solid #f8f9fa;
+        }
+
+        .chat-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .emoji-avatar {
+            font-size: 50px;
+            animation: wave 2.5s ease-in-out infinite;
+            transform-origin: 70% 70%;
+            display: inline-block;
+        }
+
+        /* Waving hand animation */
+        @keyframes wave {
+            0% { transform: rotate(0deg); }
+            10% { transform: rotate(14deg); }
+            20% { transform: rotate(-8deg); }
+            30% { transform: rotate(14deg); }
+            40% { transform: rotate(-4deg); }
+            50% { transform: rotate(10deg); }
+            60% { transform: rotate(0deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        .online-indicator {
+            width: 12px;
+            height: 12px;
+            background: #25d366;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            border: 2px solid white;
+            animation: onlinePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes onlinePulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.7;
+            }
+        }
+
+        .chat-message {
+            color: #333;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .chat-button {
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .chat-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+        }
+
+        .chat-button-icon {
+            font-size: 1.3rem;
+            animation: iconRotate 2s ease-in-out infinite;
+        }
+
+        @keyframes iconRotate {
+            0%, 90% {
+                transform: rotate(0deg);
+            }
+            95% {
+                transform: rotate(15deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        .close-chat-widget {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            color: #999;
+            cursor: pointer;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .close-chat-widget:hover {
+            background: #f0f0f0;
+            color: #dc0000;
+            transform: rotate(90deg);
+        }
+
         /* WhatsApp Floating Button */
         .whatsapp-float {
             position: fixed;
@@ -628,78 +797,370 @@
             height: 70px;
             bottom: 30px;
             right: 30px;
-            background-color: #25d366;
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
             color: #FFF;
             border-radius: 50%;
             text-align: center;
             font-size: 40px;
-            box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
             z-index: 1500;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            animation: pulse 2s infinite;
+            animation: floatPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes floatPulse {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+            }
+            50% {
+                transform: translateY(-10px) scale(1.05);
+                box-shadow: 0 8px 30px rgba(37, 211, 102, 0.7);
+            }
         }
 
         .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 2px 2px 25px rgba(37, 211, 102, 0.6);
+            animation: none;
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 35px rgba(37, 211, 102, 0.8);
         }
 
-        .whatsapp-popup {
-            position: fixed;
-            bottom: 110px;
-            right: 30px;
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.3);
-            z-index: 1500;
+        /* WhatsApp Modal Popup */
+        .whatsapp-modal {
             display: none;
-            animation: slideUp 0.3s ease;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            animation: modalFadeIn 0.3s ease;
+            backdrop-filter: blur(5px);
         }
 
-        @keyframes slideUp {
+        @keyframes modalFadeIn {
             from {
-                transform: translateY(20px);
                 opacity: 0;
             }
             to {
-                transform: translateY(0);
                 opacity: 1;
             }
         }
 
-        .whatsapp-popup.show {
-            display: block;
+        .whatsapp-modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .whatsapp-popup h4 {
+        .whatsapp-modal-content {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+            width: 90%;
+            max-width: 450px;
+            border-radius: 25px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: popupBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes popupBounce {
+            0% {
+                transform: scale(0.3) rotate(-10deg);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.05) rotate(2deg);
+            }
+            70% {
+                transform: scale(0.95) rotate(-1deg);
+            }
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        .whatsapp-modal-header {
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            padding: 30px 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whatsapp-modal-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: ripple 4s linear infinite;
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0;
+            }
+        }
+
+        .whatsapp-icon-large {
+            font-size: 70px;
+            margin-bottom: 15px;
+            animation: iconFloat 2s ease-in-out infinite;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes iconFloat {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(5deg);
+            }
+        }
+
+        .whatsapp-modal-header h3 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .whatsapp-modal-header p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .whatsapp-modal-body {
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .whatsapp-message-box {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #25d366;
+            text-align: left;
+            animation: slideInLeft 0.5s ease 0.3s backwards;
+        }
+
+        .whatsapp-message-box h4 {
             color: #25d366;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+
+        .whatsapp-message-box p {
+            color: #666;
+            line-height: 1.6;
             margin-bottom: 10px;
         }
 
-        .whatsapp-popup p {
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 15px;
+        .benefits-list {
+            list-style: none;
+            text-align: left;
+            margin-top: 15px;
         }
 
-        .whatsapp-chat-button {
-            background: #25d366;
+        .benefits-list li {
+            padding: 8px 0;
+            color: #555;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .benefits-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #25d366;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .whatsapp-chat-now-button {
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
             color: white;
-            padding: 12px 25px;
+            padding: 18px 45px;
             border-radius: 50px;
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
             font-weight: bold;
+            font-size: 1.2rem;
             transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            animation: buttonGlow 2s ease-in-out infinite;
         }
 
-        .whatsapp-chat-button:hover {
-            background: #128c7e;
+        @keyframes buttonGlow {
+            0%, 100% {
+                box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 8px 30px rgba(37, 211, 102, 0.7);
+            }
+        }
+
+        .whatsapp-chat-now-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 35px rgba(37, 211, 102, 0.6);
+            animation: none;
+        }
+
+        .whatsapp-chat-now-button .icon {
+            font-size: 1.5rem;
+            animation: iconSpin 3s linear infinite;
+        }
+
+        @keyframes iconSpin {
+            0%, 90% {
+                transform: rotate(0deg);
+            }
+            95% {
+                transform: rotate(15deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        .close-whatsapp-modal {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .close-whatsapp-modal:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        /* Popup Overlay for Plan Form */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        /* Popup Box */
+        .popup-content {
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 0 25px rgba(0,0,0,0.2);
+            position: relative;
+            animation: fadeInPopup 0.3s ease-in-out;
+        }
+
+        @keyframes fadeInPopup {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Close Button */
+        .close-btn {
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            font-size: 24px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .popup-content h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Form Styling */
+        .popup-form label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .popup-form input,
+        .popup-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+
+        .popup-form input[readonly] {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #dc0000 0%, #000000 100%);
+            color: white;
+            padding: 18px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-submit:hover {
+            background: #fdf6f6;
+            color: red;
         }
 
         /* Footer */
@@ -775,18 +1236,40 @@
                 grid-template-columns: 1fr;
             }
 
-            .whatsapp-popup {
-                right: 10px;
-                left: 10px;
-                bottom: 110px;
-            }
-
             .whatsapp-float {
                 width: 60px;
                 height: 60px;
                 font-size: 35px;
                 right: 20px;
                 bottom: 20px;
+            }
+
+            .whatsapp-modal-content {
+                width: 95%;
+                margin: 0 10px;
+            }
+
+            .whatsapp-modal-body {
+                padding: 30px 20px;
+            }
+
+            .whatsapp-chat-now-button {
+                padding: 15px 35px;
+                font-size: 1.1rem;
+            }
+
+            .chat-widget {
+                left: 20px;
+                bottom: 100px;
+            }
+
+            .chat-bubble {
+                max-width: 280px;
+                padding: 18px 20px;
+            }
+
+            .emoji-avatar {
+                font-size: 40px;
             }
         }
     </style>
@@ -873,7 +1356,6 @@
             </div>
 
             <div class="pricing-card featured">
-                <span class="featured-badge">MOST POPULAR</span>
                 <div class="plan-name">Professional</div>
                 <div class="price">₹9,999</div>
                 <ul>
@@ -881,6 +1363,7 @@
                     <li>Mobile Responsive</li>
                     <li>SEO Friendly</li>
                     <li>Contact & Inquiry Forms</li>
+                    <li>Social Media Links</li>
                     <li>Google Maps Integration</li>
                     <li>WhatsApp Integration</li>
                     <li>Two Business Email</li>
@@ -897,15 +1380,19 @@
                 <div class="price">₹19,999</div>
                 <ul>
                     <li>Upto 15 Pages</li>
+                    <li>Mobile Responsive</li>
                     <li>Advanced SEO</li>
-                    <li>Everything in Professional</li>
                     <li>Contact & Inquiry Forms</li>
                     <li>Google Maps Integration</li>
                     <li>Call & WhatsApp Integration</li>
+                    <li>Social Media Links</li>
                     <li>Blog Section</li>
                     <li>Gallery/Portfolio</li>
+                    <li>Privacy Policy Page</li>
                     <li>Three Business Email</li>
                     <li>6 Months Support</li>
+                    <li>One Year Free Hosting</li>
+                    <li>3 Months Support</li>
                 </ul>
                 <a class="select-plan">Select Plan</a>
             </div>
@@ -914,8 +1401,10 @@
                 <div class="plan-name">E-Commerce-Basic</div>
                 <div class="price">₹34,999</div>
                 <ul>
-                    <li>Unlimited Pages</li>
+                    <li>Upto 10 Pages</li>
+                    <li>Mobile Responsive</li>
                     <li>Advanced SEO</li>
+                    <li>Contact & Inquiry Forms</li>
                     <li>Payment Gateway</li>
                     <li>Customer Portal</li>
                     <li>50 Products</li>
@@ -931,14 +1420,16 @@
                 <div class="price">₹49,999</div>
                 <ul>
                     <li>Unlimited Pages</li>
+                    <li>Mobile Responsive</li>
                     <li>Advanced SEO</li>
                     <li>Payment Gateway</li>
                     <li>Customer Portal</li>
                     <li>Admin Panel</li>
+                    <li>Contact & Inquiry Forms</li>
                     <li>Privacy and Refund Policy</li>
                     <li>WhatsApp Chat Integration</li>
                     <li>100 Products</li>
-                    <li>5 business Email</li>
+                    <li>Upto 10 business Email</li>
                     <li>12 Months Support</li>
                 </ul>
                 <a class="select-plan">Select Plan</a>
@@ -961,156 +1452,32 @@
             </div>
         </div>
     </section>
-    <!--From for selected plan-->
-    <!-- Hidden Popup Form -->
-<div id="planPopup" class="popup-overlay">
-  <div class="popup-content">
-    <span class="close-btn">&times;</span>
-    <h2>Book Your Plan</h2>
-    <form
-      action="https://formspree.io/f/yourFormID" 
-      method="POST"
-      class="popup-form"
-    >
-      <label for="selected-plan">Selected Plan</label>
-      <input type="text" id="selected-plan" name="Selected Plan" readonly>
 
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    <!-- Hidden Popup Form for Plan Selection -->
+    <div id="planPopup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h2>Book Your Plan</h2>
+            <form action="https://formspree.io/f/yourFormID" method="POST" class="popup-form">
+                <label for="selected-plan">Selected Plan</label>
+                <input type="text" id="selected-plan" name="Selected Plan" readonly>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
-      <label for="phone">Phone</label>
-      <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
-      <label for="message">Message (Optional)</label>
-      <textarea id="message" name="message" placeholder="Any extra details..."></textarea>
+                <label for="phone">Phone</label>
+                <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
 
-      <button type="submit" class="btn-submit">Submit</button>
-    </form>
-  </div>
-</div>
+                <label for="message">Message (Optional)</label>
+                <textarea id="message" name="message" placeholder="Any extra details..."></textarea>
 
-<!-- Script -->
-<script>
-  const popup = document.getElementById("planPopup");
-  const closeBtn = document.querySelector(".close-btn");
-  const planInput = document.getElementById("selected-plan");
-
-  // When any "Select Plan" button is clicked
-  document.querySelectorAll(".select-plan").forEach(button => {
-    button.addEventListener("click", function (e) {
-      e.preventDefault();
-      const planName = this.closest(".pricing-card").querySelector(".plan-name").textContent.trim();
-      planInput.value = planName;
-      popup.style.display = "flex";
-      document.body.style.overflow = "hidden"; // prevent background scrolling
-    });
-  });
-
-  // Close popup
-  closeBtn.addEventListener("click", () => {
-    popup.style.display = "none";
-    document.body.style.overflow = "auto";
-  });
-
-  // Close when clicking outside the form
-  window.addEventListener("click", (e) => {
-    if (e.target === popup) {
-      popup.style.display = "none";
-      document.body.style.overflow = "auto";
-    }
-  });
-</script>
-
-<!-- Styling -->
-<style>
-  /* Popup Overlay */
-  .popup-overlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.6);
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-  }
-
-  /* Popup Box */
-  .popup-content {
-    background: #fff;
-    padding: 30px 40px;
-    border-radius: 15px;
-    max-width: 500px;
-    width: 90%;
-    box-shadow: 0 0 25px rgba(0,0,0,0.2);
-    position: relative;
-    animation: fadeIn 0.3s ease-in-out;
-  }
-
-  /* Close Button */
-  .close-btn {
-    position: absolute;
-    right: 15px;
-    top: 10px;
-    font-size: 24px;
-    color: #333;
-    cursor: pointer;
-  }
-
-  .popup-content h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  /* Form Styling */
-  .popup-form label {
-    display: block;
-    margin-bottom: 6px;
-    font-weight: 600;
-    text-align: left;
-  }
-
-  .popup-form input,
-  .popup-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-  }
-
-  .popup-form input[readonly] {
-    background-color: #f2f2f2;
-    font-weight: bold;
-  }
-
-  .btn-submit {
-  background: linear-gradient(135deg, #dc0000 0%, #000000 100%);
-            color: white;
-            padding: 18px 50px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-  }
-
-  .btn-submit:hover {
-    background: #fdf6f6;
-     color:red;
-  }
-
-  @keyframes fadeIn {
-    from {opacity: 0; transform: scale(0.95);}
-    to {opacity: 1; transform: scale(1);}
-  }
-</style>
+                <button type="submit" class="btn-submit">Submit</button>
+            </form>
+        </div>
+    </div>
 
     <!-- Demo Section - Always Visible Boxes -->
     <section class="demo-section">
@@ -1201,19 +1568,132 @@
         <p style="margin-top: 30px;">&copy; 2025 Junak Digital Dynamics. All Rights Reserved.</p>
     </footer>
 
+    <!-- Chat Widget with Waving Hand -->
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-bubble">
+            <span class="close-chat-widget" onclick="closeChatWidget()">&times;</span>
+            <div class="chat-header">
+                <div style="position: relative;">
+                    <span class="emoji-avatar">👋</span>
+                    <div class="online-indicator"></div>
+                </div>
+            </div>
+            <div class="chat-message">
+                <strong>Hey there!</strong> I help businesses go online and grow faster. Let's chat and build something amazing for your brand! 🚀
+            </div>
+            <a href="https://wa.me/918811093184?text=Hi,%20I%20want%20to%20build%20an%20amazing%20website%20for%20my%20brand" 
+               target="_blank" 
+               class="chat-button">
+                <span class="chat-button-icon">💬</span>
+                <span>Chat Now</span>
+            </a>
+        </div>
+    </div>
+
     <!-- WhatsApp Floating Button -->
     <div class="whatsapp-float" id="whatsappButton">
         <span>💬</span>
     </div>
 
-    <!-- WhatsApp Popup -->
-    <div class="whatsapp-popup" id="whatsappPopup">
-        <h4>Get Free Consultancy Now!</h4>
-        <p>Chat with us on WhatsApp for instant support and free consultation.</p>
-        <a href="https://wa.me/918811093184?text=Hi,%20I%20want%20a%20free%20consultation%20for%20website%20design" target="_blank" class="whatsapp-chat-button">Start Chat</a>
+    <!-- WhatsApp Modal Popup -->
+    <div id="whatsappModal" class="whatsapp-modal">
+        <div class="whatsapp-modal-content">
+            <span class="close-whatsapp-modal" onclick="closeWhatsAppModal()">&times;</span>
+            
+            <div class="whatsapp-modal-header">
+                <div class="whatsapp-icon-large">💬</div>
+                <h3>Chat with Us!</h3>
+                <p>Get instant support and free consultation</p>
+            </div>
+            
+            <div class="whatsapp-modal-body">
+                <div class="whatsapp-message-box">
+                    <h4>🎉 Get Free Consultancy Now!</h4>
+                    <p>Hello! We're here to help you build your dream website. Connect with us on WhatsApp for:</p>
+                    <ul class="benefits-list">
+                        <li>Instant Responses</li>
+                        <li>Free Website Consultation</li>
+                        <li>Custom Package Quotes</li>
+                        <li>Expert Guidance</li>
+                        <li>24/7 Support</li>
+                    </ul>
+                </div>
+                
+                <a href="https://wa.me/918811093184?text=Hi,%20I%20want%20a%20free%20consultation%20for%20website%20design" 
+                   target="_blank" 
+                   class="whatsapp-chat-now-button">
+                    <span class="icon">💬</span>
+                    <span>Start WhatsApp Chat</span>
+                </a>
+            </div>
+        </div>
     </div>
 
     <script>
+        // Plan Popup functionality
+        const popup = document.getElementById("planPopup");
+        const closeBtn = document.querySelector(".close-btn");
+        const planInput = document.getElementById("selected-plan");
+
+        // When any "Select Plan" button is clicked
+        document.querySelectorAll(".select-plan").forEach(button => {
+            button.addEventListener("click", function (e) {
+                e.preventDefault();
+                const planName = this.closest(".pricing-card").querySelector(".plan-name").textContent.trim();
+                planInput.value = planName;
+                popup.style.display = "flex";
+                document.body.style.overflow = "hidden";
+            });
+        });
+
+        // Close popup
+        closeBtn.addEventListener("click", () => {
+            popup.style.display = "none";
+            document.body.style.overflow = "auto";
+        });
+
+        // Close when clicking outside the form
+        window.addEventListener("click", (e) => {
+            if (e.target === popup) {
+                popup.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        });
+
+        // Chat Widget Functions
+        function closeChatWidget() {
+            document.getElementById('chatWidget').style.display = 'none';
+        }
+
+        // Auto show chat widget after 3 seconds
+        setTimeout(function() {
+            document.getElementById('chatWidget').style.animation = 'slideInLeft 1s ease forwards';
+        }, 3000);
+
+        // WhatsApp Modal Functions
+        const whatsappButton = document.getElementById('whatsappButton');
+        const whatsappModal = document.getElementById('whatsappModal');
+
+        whatsappButton.addEventListener('click', function() {
+            whatsappModal.classList.add('show');
+        });
+
+        function closeWhatsAppModal() {
+            whatsappModal.classList.remove('show');
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target == whatsappModal) {
+                closeWhatsAppModal();
+            }
+        }
+
+        // Auto show WhatsApp modal after 10 seconds
+        setTimeout(function() {
+            whatsappModal.classList.add('show');
+        }, 10000);
+
         // Hide hero description paragraph on scroll
         window.addEventListener('scroll', function() {
             const heroDescription = document.getElementById('heroDescription');
@@ -1254,29 +1734,6 @@
             });
         });
 
-        // WhatsApp popup functionality
-        const whatsappButton = document.getElementById('whatsappButton');
-        const whatsappPopup = document.getElementById('whatsappPopup');
-
-        whatsappButton.addEventListener('click', function() {
-            whatsappPopup.classList.toggle('show');
-        });
-
-        // Auto show popup after 5 seconds
-        setTimeout(function() {
-            whatsappPopup.classList.add('show');
-            setTimeout(function() {
-                whatsappPopup.classList.remove('show');
-            }, 5000);
-        }, 5000);
-
-        // Close popup when clicking outside
-        document.addEventListener('click', function(event) {
-            if (!whatsappButton.contains(event.target) && !whatsappPopup.contains(event.target)) {
-                whatsappPopup.classList.remove('show');
-            }
-        });
-
         // Scroll animation for feature cards
         const observerOptions = {
             threshold: 0.2,
@@ -1307,6 +1764,21 @@
                 hero.style.transform = `translateY(${scrolled * 0.5}px)`;
             }
         });
+
+        // Hide navbar on scroll down
+        let lastScrollTop = 0;
+        const navbar = document.querySelector(".navbar");
+
+        window.addEventListener("scroll", function () {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                navbar.classList.add("hidden");
+            } else {
+                navbar.classList.remove("hidden");
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }, false);
     </script>
 </body>
 </html>
