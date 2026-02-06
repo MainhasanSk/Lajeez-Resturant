@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - SB Gold</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-gem"></i>
+                    <span>SB Gold</span>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <a href="favorites.html" class="icon-btn" id="favBtn">
+                        <i class="fas fa-heart"></i>
+                        <span class="badge" id="favCount">0</span>
+                    </a>
+                    <a href="cart.html" class="icon-btn active" id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge" id="cartCount">0</span>
+                    </a>
+                    <button class="btn-primary" id="authBtn">Login</button>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Shopping Cart</h1>
+            <p>Review your selected items</p>
+        </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+        <div class="container">
+            <div class="cart-layout">
+                <div class="cart-items" id="cartItems">
+                    <div class="loading">Loading cart...</div>
+                </div>
+                <!-- <div class="cart-summary">
+
+                    <h3>Order Summary</h3>
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">₹0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tax (3%):</span>
+                        <span id="tax">₹0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping:</span>
+                        <span id="shipping">Free</span>
+                    </div>
+                    <div class="summary-divider"></div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="total">₹0</span>
+                    </div>
+                    <button class="btn-checkout" id="checkoutBtn">
+                        <i class="fas fa-lock"></i> Proceed to Checkout
+                    </button>
+                    <a href="products.html" class="btn-continue">
+                        <i class="fas fa-arrow-left"></i> Continue Shopping
+                    </a>
+                </div> -->
+
+                <div class="cart-summary">
+    <h3>Order Summary</h3>
+    <div class="summary-row">
+        <span>Items:</span>
+        <span id="itemCount">0</span>
+    </div>
+    <div class="summary-row">
+        <span>Total Weight:</span>
+        <span id="totalWeight">0g</span>
+    </div>
+    <div class="summary-divider"></div>
+    <button class="btn-inquiry" id="inquiryBtn">
+        <i class="fas fa-arrow-left"></i> Send Inquiry for Purchase
+    </button>
+    <a href="products.html" class="btn-continue">
+        <i class="fas fa-arrow-left"></i> Continue Shopping
+    </a>
+    <small style="color: #999; text-align: center; margin-top: 1rem; display: block;">
+        Our team will contact you with the current price and availability
+    </small>
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <i class="fas fa-gem"></i>
+                        <span>SB Gold</span>
+                    </div>
+                    <p>Your trusted destination for premium gold jewelry</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SB Gold. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Checkout Modal -->
+<div class="modal" id="checkoutModal" style="display: none;">
+    <div class="modal-content checkout-modal-content">
+        <div class="modal-header">
+            <h3>Complete Your Order</h3>
+            <button class="modal-close" id="closeCheckoutModal">&times;</button>
+        </div>
+        <form id="checkoutForm" class="checkout-form">
+            <div class="checkout-summary">
+                <h4>Order Summary</h4>
+                <div class="summary-items" id="checkoutSummary"></div>
+            </div>
+            
+            <div class="form-section">
+                <h4><i class="fas fa-user"></i> Personal Information</h4>
+                <div class="form-group">
+                    <label for="customerName">Full Name <span class="required">*</span></label>
+                    <input type="text" id="customerName" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-row-2">
+                    <div class="form-group">
+                        <label for="customerEmail">Email <span class="required">*</span></label>
+                        <input type="email" id="customerEmail" placeholder="your.email@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerPhone">Phone Number <span class="required">*</span></label>
+                        <input type="tel" id="customerPhone" placeholder="10-digit mobile number" required pattern="[0-9]{10}">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h4><i class="fas fa-map-marker-alt"></i> Delivery Address</h4>
+                <div class="form-group">
+                    <label for="customerAddress">Street Address <span class="required">*</span></label>
+                    <textarea id="customerAddress" rows="2" placeholder="House no., Street name" required></textarea>
+                </div>
+                
+                <div class="form-row-2">
+                    <div class="form-group">
+                        <label for="customerCity">City <span class="required">*</span></label>
+                        <input type="text" id="customerCity" placeholder="City" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerState">State <span class="required">*</span></label>
+                        <input type="text" id="customerState" placeholder="State" required>
+                    </div>
+                </div>
+                
+                <div class="form-row-2">
+                    <div class="form-group">
+                        <label for="customerPincode">Pincode <span class="required">*</span></label>
+                        <input type="text" id="customerPincode" placeholder="6-digit pincode" required pattern="[0-9]{6}">
+                    </div>
+                    <div class="form-group">
+                        <label for="customerLandmark">Landmark (Optional)</label>
+                        <input type="text" id="customerLandmark" placeholder="Near...">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h4><i class="fas fa-comment"></i> Additional Notes (Optional)</h4>
+                <div class="form-group">
+                    <textarea id="customerNotes" rows="2" placeholder="Any special instructions or requirements..."></textarea>
+                </div>
+            </div>
+            
+            <div class="checkout-actions">
+                <button type="button" class="btn-cancel" id="cancelCheckout">Cancel</button>
+                <button type="submit" class="btn-submit-order" id="submitOrderBtn">
+                    <i class="fas fa-paper-plane"></i> Submit Inquiry
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/cart.js"></script>
+</body>
+</html>

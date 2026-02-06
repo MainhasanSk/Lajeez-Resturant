@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - SB Gold</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar" id="adminSidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-gem"></i>
+                <span>SB Gold Admin</span>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="#dashboard" class="menu-item active" data-section="dashboard">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#products" class="menu-item" data-section="products">
+                    <i class="fas fa-box"></i>
+                    <span>Products</span>
+                </a>
+                <a href="#gold-price" class="menu-item" data-section="gold-price">
+                    <i class="fas fa-coins"></i>
+                    <span>Gold Prices</span>
+                </a>
+                <a href="#orders" class="menu-item" data-section="orders">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Orders</span>
+                </a>
+                <a href="#users" class="menu-item" data-section="users">
+                    <i class="fas fa-users"></i>
+                    <span>Users</span>
+                </a>
+            </nav>
+            <button class="sidebar-logout" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 id="pageTitle">Dashboard</h1>
+                </div>
+                <div class="header-right">
+                    <div class="admin-profile">
+                        <i class="fas fa-user-circle"></i>
+                        <span id="adminName">Admin</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="admin-content">
+                <!-- Dashboard Section -->
+                <section id="section-dashboard" class="content-section active">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background: linear-gradient(135deg, #D4AF37, #F4E4C1);">
+                                <i class="fas fa-box"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="totalProducts">0</h3>
+                                <p>Total Products</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background: linear-gradient(135deg, #1a1a1a, #4a4a4a);">
+                                <i class="fas fa-shopping-bag"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="totalOrders">0</h3>
+                                <p>Total Orders</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background: linear-gradient(135deg, #D4AF37, #F4E4C1);">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="totalUsers">0</h3>
+                                <p>Registered Users</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background: linear-gradient(135deg, #1a1a1a, #4a4a4a);">
+                                <i class="fas fa-rupee-sign"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="totalRevenue">₹0</h3>
+                                <p>Total Revenue</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Products Section -->
+                <section id="section-products" class="content-section">
+                    <div class="section-actions">
+                        <button class="btn-primary" id="addProductBtn">
+                            <i class="fas fa-plus"></i> Add New Product
+                        </button>
+                    </div>
+                    <div class="data-table">
+                        <table id="productsTable">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Purity</th>
+                                    <th>Weight</th>
+                                    <th>Category</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productsTableBody">
+                                <tr>
+                                    <td colspan="6" class="text-center">Loading...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Gold Price Section -->
+                <section id="section-gold-price" class="content-section">
+                    <div class="form-container">
+                        <form id="goldPriceForm" class="admin-form">
+                            <h3>Update Gold Prices</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="price18k">18K Gold Price (per gram)</label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-rupee-sign"></i>
+                                        <input type="number" id="price18k" placeholder="Enter 18K price" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="price22k">22K Gold Price (per gram)</label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-rupee-sign"></i>
+                                        <input type="number" id="price22k" placeholder="Enter 22K price" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="price24k">24K Gold Price (per gram)</label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-rupee-sign"></i>
+                                        <input type="number" id="price24k" placeholder="Enter 24K price" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="makingCharge">Making Charge (%)</label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-percentage"></i>
+                                        <input type="number" id="makingCharge" placeholder="Enter making charge" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-submit">
+                                <i class="fas fa-save"></i> Update Prices
+                            </button>
+                            <div class="success-message" id="priceSuccessMessage"></div>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Inquiries Section -->
+                <section id="section-orders" class="content-section">
+                    <div class="section-actions">
+                        <div class="filter-tabs">
+                            <button class="filter-tab active" data-status="all">All</button>
+                            <button class="filter-tab" data-status="pending">Pending</button>
+                            <button class="filter-tab" data-status="viewed">Viewed</button>
+                            <button class="filter-tab" data-status="contacted">Contacted</button>
+                            <button class="filter-tab" data-status="dismissed">Dismissed</button>
+                        </div>
+                    </div>
+                    <div class="data-table">
+                        <table id="ordersTable">
+                            <thead>
+                                <tr>
+                                    <th>Inquiry ID</th>
+                                    <th>Customer</th>
+                                    <th>Items</th>
+                                    <th>Weight</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ordersTableBody">
+                                <tr>
+                                    <td colspan="7" class="text-center">Loading...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Users Section -->
+                <section id="section-users" class="content-section">
+                    <div class="data-table">
+                        <table id="usersTable">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Role</th>
+                                    <th>Joined</th>
+                                </tr>
+                            </thead>
+                            <tbody id="usersTableBody">
+                                <tr>
+                                    <td colspan="5" class="text-center">Loading...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Inquiry Detail Modal -->
+    <div class="modal" id="inquiryModal">
+        <div class="modal-content inquiry-modal-content">
+            <div class="modal-header">
+                <h3>Inquiry Details</h3>
+                <button class="modal-close" id="closeInquiryModal">&times;</button>
+            </div>
+            <div class="inquiry-detail" id="inquiryDetail">
+                <!-- Details will be loaded here -->
+            </div>
+            <div class="modal-actions">
+                <button class="btn-secondary" id="downloadPdfBtn">
+                    <i class="fas fa-download"></i> Download PDF
+                </button>
+                <button class="btn-primary" id="markViewedBtn">
+                    <i class="fas fa-eye"></i> Mark as Viewed
+                </button>
+                <button class="btn-success" id="markContactedBtn">
+                    <i class="fas fa-phone"></i> Mark as Contacted
+                </button>
+                <button class="btn-danger" id="markDismissedBtn">
+                    <i class="fas fa-times"></i> Dismiss
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content product-modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Add New Product</h3>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <form id="productForm" class="modal-form product-form">
+                <input type="hidden" id="productId">
+                
+                <!-- Product Name -->
+                <div class="form-group">
+                    <label for="productName">
+                        <i class="fas fa-tag"></i> Product Name
+                        <span class="required">*</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="productName" 
+                        placeholder="e.g., Gold Chain Necklace" 
+                        required
+                        class="form-input">
+                </div>
+                
+                <!-- Description -->
+                <div class="form-group">
+                    <label for="productDescription">
+                        <i class="fas fa-align-left"></i> Description
+                        <span class="required">*</span>
+                    </label>
+                    <textarea 
+                        id="productDescription" 
+                        rows="3" 
+                        placeholder="Describe the product features, design, and craftsmanship..." 
+                        required
+                        class="form-textarea"></textarea>
+                    <small class="form-hint">Minimum 20 characters</small>
+                </div>
+                
+                <!-- Main Category and Sub-Category -->
+                <div class="form-row-2">
+                    <div class="form-group">
+                        <label for="productMainCategory">
+                            <i class="fas fa-list"></i> Main Category
+                            <span class="required">*</span>
+                        </label>
+                        <select id="productMainCategory" required class="form-select">
+                            <option value="">Select Main Category</option>
+                            <option value="Gold Jewellery">💍 Gold Jewellery</option>
+                            <option value="Silver Jewellery">⚪ Silver Jewellery</option>
+                            <option value="Diamond Jewellery">💎 Diamond Jewellery</option>
+                            <option value="Gold Coin">🪙 Gold Coin</option>
+                            <option value="Silver Utensils">🍽️ Silver Utensils</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group" id="subCategoryGroup" style="display: none;">
+                        <label for="productSubCategory">
+                            <i class="fas fa-tags"></i> Sub-Category
+                            <span class="text-muted">(Optional)</span>
+                        </label>
+                        <select id="productSubCategory" class="form-select">
+                            <option value="">Select Sub-Category</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Purity and Weight -->
+                <div class="form-row-2">
+                    <div class="form-group">
+                        <label for="productPurity">
+                            <i class="fas fa-gem"></i> Purity/Material
+                            <span class="required">*</span>
+                        </label>
+                        <select id="productPurity" required class="form-select">
+                            <option value="">Select Main Category First</option>
+                        </select>
+                        <small class="form-hint">Changes based on Main Category</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productWeight">
+                            <i class="fas fa-weight"></i> Weight (grams)
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-group">
+                            <input 
+                                type="number" 
+                                id="productWeight" 
+                                step="0.01" 
+                                min="0.01"
+                                placeholder="e.g., 25.50" 
+                                required
+                                class="form-input">
+                            <span class="input-addon">grams</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image Upload Section -->
+                <div class="form-group">
+                    <label for="productImageFile">
+                        <i class="fas fa-image"></i> Product Image 
+                        <span class="required">*</span>
+                    </label>
+                    
+                    <!-- File Upload Area -->
+                    <div class="file-upload-wrapper" id="fileUploadArea">
+                        <input 
+                            type="file" 
+                            id="productImageFile" 
+                            accept="image/*"
+                            class="form-input-file"
+                            style="display: none;">
+                        <label for="productImageFile" class="file-upload-label">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <span>Click to Upload or Drag & Drop</span>
+                            <small>JPG, PNG, GIF, WebP (Max 32MB)</small>
+                        </label>
+                    </div>
+                    
+                    <!-- Image Preview -->
+                    <div class="image-preview-container" id="imagePreviewContainer" style="display: none;">
+                        <img id="imagePreview" class="image-preview" alt="Product Preview">
+                        <div class="preview-overlay">
+                            <span id="previewStatus">Image ready to upload</span>
+                        </div>
+                        <button type="button" class="btn-remove-image" id="removeImageBtn">
+                            <i class="fas fa-times"></i> Remove
+                        </button>
+                    </div>
+                    
+                    <!-- Upload Progress -->
+                    <div class="upload-progress" id="uploadProgress" style="display: none;">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <span class="progress-text" id="progressText">Uploading...</span>
+                    </div>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" id="cancelBtn">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                    <button type="submit" class="btn-save" id="saveProductBtn">
+                        <i class="fas fa-save"></i> Save Product
+                    </button>
+                </div>
+                
+                <div class="error-message" id="productErrorMessage"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ✅ Scripts - ONLY ONCE at the bottom -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/admin-dashboard.js"></script>
+</body>
+</html>

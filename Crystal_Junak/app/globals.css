@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cj-primary: #177A64;
+  --color-cj-secondary: #E09F33;
+  --color-cj-supporting: #5C8660;
+  --color-cj-highlight: #E2D284;
+  --color-cj-accent: #E96BA5;
+  --color-cj-background: #FEFEFE;
+  --color-cj-charcoal: #1A1A1A;
+
+  --font-sans: var(--font-outfit), sans-serif;
+  --font-serif: var(--font-playfair), serif;
+
+  --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-float: float 3s ease-in-out infinite;
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #1A1A1A;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-cj-background);
+    color: var(--color-cj-charcoal);
+    @apply antialiased;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Glassmorphism Utilities */
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+
+  .glass-dark {
+    @apply bg-black/30 backdrop-blur-md border border-white/10;
+  }
+
+  .glass-panel {
+    @apply bg-white/40 backdrop-blur-lg border border-white/30 shadow-xl;
+  }
+
+  /* Text Effects */
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-shadow-glow {
+    text-shadow: 0 0 10px rgba(226, 210, 132, 0.5);
+  }
+}

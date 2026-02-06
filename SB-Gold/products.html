@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - SB Gold</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-gem"></i>
+                    <span>SB Gold</span>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <a href="favorites.html" class="icon-btn" id="favBtn">
+                        <i class="fas fa-heart"></i>
+                        <span class="badge" id="favCount">0</span>
+                    </a>
+                    <a href="cart.html" class="icon-btn" id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge" id="cartCount">0</span>
+                    </a>
+                    <button class="btn-primary" id="authBtn">Login</button>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Collection</h1>
+            <p>Explore our exquisite range of jewelry and precious items</p>
+        </div>
+    </section>
+
+    <!-- ✅ MAIN CATEGORIES SECTION -->
+    <section class="categories-showcase" id="mainCategoriesSection">
+        <div class="container">
+            <h2 class="section-title">Browse by Category</h2>
+            <div class="main-categories-grid" id="mainCategoriesGrid">
+                <!-- Categories will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ✅ SUB-CATEGORIES SECTION -->
+    <section class="subcategories-section" id="subCategoriesSection" style="display: none;">
+        <div class="container">
+            <div class="subcategory-header">
+                <button class="btn-back" id="backToMainCategories">
+                    <i class="fas fa-arrow-left"></i> Back to All Categories
+                </button>
+                <h2 id="selectedCategoryTitle">Gold Jewellery</h2>
+            </div>
+            <div class="subcategories-grid" id="subCategoriesGrid">
+                <!-- Sub-categories will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" id="productsSection" style="display: none;">
+        <div class="container">
+            <div class="products-filters" id="productsFilters">
+                <!-- Breadcrumb -->
+                <div class="filter-breadcrumb">
+                    <span id="filterBreadcrumb">All Products</span>
+                </div>
+                
+                <div class="filters-wrapper">
+                    <!-- Purity Filter -->
+                    <div class="filter-group">
+                        <label><i class="fas fa-certificate"></i> Purity:</label>
+                        <select id="purityFilter">
+                            <option value="">All Purity</option>
+                            <optgroup label="Gold">
+                                <option value="18K Gold">18K Gold</option>
+                                <option value="22K Gold">22K Gold</option>
+                                <option value="24K Gold">24K Gold</option>
+                            </optgroup>
+                            <optgroup label="Silver">
+                                <option value="925 Silver">925 Silver</option>
+                                <option value="999 Silver">999 Silver</option>
+                            </optgroup>
+                            <optgroup label="Diamond">
+                                <option value="Diamond">Diamond</option>
+                                <option value="Diamond + 18K Gold">Diamond + 18K Gold</option>
+                                <option value="Diamond + 22K Gold">Diamond + 22K Gold</option>
+                                <option value="Diamond + 24K Gold">Diamond + 24K Gold</option>
+                                <option value="Diamond + Platinum">Diamond + Platinum</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    
+                    <!-- Sort Filter -->
+                    <div class="filter-group">
+                        <label><i class="fas fa-sort"></i> Sort By:</label>
+                        <select id="sortFilter">
+                            <option value="default">Default</option>
+                            <option value="weight-low">Weight: Low to High</option>
+                            <option value="weight-high">Weight: High to Low</option>
+                            <option value="newest">Newest First</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="products-grid" id="productsGrid">
+                <div class="loading">Loading products...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Detail Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content product-modal">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <div class="product-detail-grid">
+                <div class="product-image-section">
+                    <img id="modalProductImage" alt="Product">
+                </div>
+                <div class="product-info-section">
+                    <h2 id="modalProductName"></h2>
+                    <div class="product-specs">
+                        <div class="spec-item">
+                            <i class="fas fa-certificate"></i>
+                            <span id="modalProductPurity"></span>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-weight"></i>
+                            <span id="modalProductWeight"></span>
+                        </div>
+                    </div>
+                    <p class="product-description" id="modalProductDescription"></p>
+                    <div class="product-actions">
+                        <button class="btn-favorite" id="modalFavoriteBtn">
+                            <i class="far fa-heart"></i> Add to Favorites
+                        </button>
+                        <button class="btn-cart" id="modalCartBtn">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <i class="fas fa-gem"></i>
+                        <span>SB Gold</span>
+                    </div>
+                    <p>Your trusted destination for premium gold jewelry</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SB Gold. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+<div id="toast" class="toast"></div>
+
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/products.js"></script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SB Gold - Premium Jewelry Collection</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+<nav class="navbar">
+    <div class="container">
+        <div class="nav-wrapper">
+            <div class="logo">
+                <i class="fas fa-gem"></i>
+                <span>SB Gold</span>
+            </div>
+            
+            <!-- Contact Info Bar -->
+            <div class="contact-bar">
+                
+               
+                <a href="tel:+919876543212" class="contact-item">
+                    <i class="fas fa-phone-alt"></i> +91 98765 43212
+                </a>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#contact"><a href="tel:+919876543210" class="contact-item">
+                    <i class="fas fa-phone-alt"></i> +91 98765 43210
+                </a> <a href="tel:+919876543211" class="contact-item">
+                    <i class="fas fa-phone-alt"></i> +91 98765 43211
+                </a>
+            </a></li>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="#about">About</a></li>
+                
+            </ul>
+            <div class="nav-icons">
+                <a href="favorites.html" class="icon-btn" id="favBtn">
+                    <i class="fas fa-heart"></i>
+                    <span class="badge" id="favCount">0</span>
+                </a>
+                <a href="cart.html" class="icon-btn" id="cartBtn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge" id="cartCount">0</span>
+                </a>
+       <button class="btn-primary" id="authBtn" onclick="window.location.href='login.html'">
+    Login
+</button>
+
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+</nav>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title animate-fade-in">Elegance in Every Detail</h1>
+            <p class="hero-subtitle animate-fade-in-delay">Discover our exquisite collection of handcrafted gold jewelry</p>
+            <a href="products.html" class="btn-hero animate-fade-in-delay-2">
+                Explore Collection
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        <div class="hero-scroll">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+    <!-- Category Section -->
+
+
+  <!-- Gold Price Banner -->
+<section class="gold-price-banner">
+    <div class="container">
+        <div class="price-grid">
+            <div class="price-card">
+                <i class="fas fa-coins"></i>
+                <div class="price-info">
+                    <span class="price-label">18K Gold</span>
+                    <span class="price-value" id="price18k">Loading...</span>
+                </div>
+            </div>
+            <div class="price-card">
+                <i class="fas fa-coins"></i>
+                <div class="price-info">
+                    <span class="price-label">22K Gold</span>
+                    <span class="price-value" id="price22k">Loading...</span>
+                </div>
+            </div>
+            <div class="price-card">
+                <i class="fas fa-star"></i>
+                <div class="price-info">
+                    <span class="price-label">24K Gold</span>
+                    <span class="price-value" id="price24k">Loading...</span>
+                </div>
+            </div>
+            <div class="price-card">
+                <i class="fas fa-tools"></i>
+                <div class="price-info">
+                    <span class="price-label">Making Charge</span>
+                    <span class="price-value" id="makingCharge">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Category Section -->
+<!-- Category Section -->
+<!-- Category Section (Keep your existing one) -->
+<section class="categories-section" id="mainCategoriesSection">
+    <div class="container">
+        <div class="section-header">
+            <h2>Shop by Category</h2>
+            <p>Discover our diverse collection</p>
+        </div>
+        <div class="categories-grid" id="mainCategoriesGrid">
+            <!-- Categories will load dynamically -->
+        </div>
+    </div>
+</section>
+
+<!-- ✅ ADD THIS: SUB-CATEGORIES SECTION -->
+<section class="subcategories-section" id="subCategoriesSection" style="display: none;">
+    <div class="container">
+        <div class="subcategory-header">
+            <button class="btn-back" id="backToMainCategories">
+                <i class="fas fa-arrow-left"></i> Back to All Categories
+            </button>
+            <h2 id="selectedCategoryTitle">Gold Jewellery</h2>
+        </div>
+        <div class="subcategories-grid" id="subCategoriesGrid">
+            <!-- Sub-categories will load here -->
+        </div>
+    </div>
+</section>
+
+<!-- ✅ ADD THIS: CATEGORY PRODUCTS SECTION -->
+<section class="featured-products" id="categoryProductsSection" style="display: none;">
+    <div class="container">
+        <div class="section-header">
+            <h2 id="categoryProductsTitle">Products</h2>
+            <p id="categoryProductsSubtitle">Browse our collection</p>
+        </div>
+        <div class="products-grid" id="categoryProductsGrid">
+            <div class="loading">Loading products...</div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Products (Keep your existing section) -->
+<section class="featured-products" id="featuredSection">
+    <div class="container">
+        <div class="section-header">
+            <h2>Featured Collection</h2>
+            <p>Handpicked pieces for you</p>
+        </div>
+        <div class="products-grid" id="featuredProducts">
+            <div class="loading">Loading products...</div>
+        </div>
+        <div class="text-center">
+            <a href="products.html" class="btn-secondary">View All Products</a>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Certified Quality</h3>
+                    <p>100% authentic gold with hallmark certification</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h3>Free Shipping</h3>
+                    <p>Secure delivery across India</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-undo"></i>
+                    <h3>Easy Returns</h3>
+                    <p>7-day return policy with full refund</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Dedicated customer service</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Floating Action Buttons -->
+<!-- Floating Action Buttons - Two Sides -->
+<div class="floating-buttons">
+    <!-- WhatsApp Button - Left Side -->
+    <a href="https://wa.me/919876543210?text=Hello!%20I%20have%20an%20inquiry%20about%20your%20jewelry%20collection.%20Please%20assist%20me." 
+       class="float-btn whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span class="float-tooltip">Have a question? Message us on WhatsApp!</span>
+    </a>
+    
+    <!-- Visit Store Button - Right Side -->
+    <a href="https://maps.google.com/?q=26.1445,91.7362" 
+       class="float-btn location-btn" target="_blank">
+        <i class="fas fa-map-marker-alt"></i>
+        <span class="float-tooltip">Visit Our Store - Get Directions</span>
+    </a>
+</div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <i class="fas fa-gem"></i>
+                        <span>SB Gold</span>
+                    </div>
+                    <p>Your trusted destination for premium gold jewelry</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SB Gold. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/home.js"></script>
+</body>
+</html>
