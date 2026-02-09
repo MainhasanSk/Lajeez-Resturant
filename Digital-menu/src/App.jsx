@@ -90,7 +90,7 @@ function App() {
       {showSuccess && <SuccessScreen />}
 
       <header className="header">
-        <h1 className="text-gold">Taj Royal</h1>
+        <h1 className="text-gold">Lajeez</h1>
         <p className="subtitle">Authentic Indian Cuisine</p>
 
         <div className="search-container">
